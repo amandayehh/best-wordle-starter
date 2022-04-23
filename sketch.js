@@ -17,7 +17,9 @@ function preload() {
 function setup() {
     for (let i = 0; i < listOfWords.length; i++) {
         if (listOfWords[i].length == 5 && listOfWords[i].charAt(4) != "s") {
-            fiveLetters.push(listOfWords[i])
+            if (!/(.).*\1/.test(listOfWords[i])) {
+                fiveLetters.push(listOfWords[i])
+            }
         }
     }
 
